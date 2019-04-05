@@ -3,12 +3,12 @@ import React from "react";
 import ListItem from "../list-item";
 import "./list.css";
 
-const List = ({ someProps, onDeleted }) => {
+const List = ({ someProps }) => {
   const element = someProps.map(item => {
     const { id, ...itemProps } = item;
     return (
       <li key={id} className="list-group-item">
-        <ListItem {...itemProps} />
+        <ListItem {...itemProps} addItem={() => console.log(id)} />
       </li>
     );
   });

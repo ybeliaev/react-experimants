@@ -27,7 +27,8 @@ export default class App extends Component {
 
     return (
       <div className="app">
-        <h1>Пример удаления элемента</h1>
+        <h1>Пример добавления элемента.</h1>
+        <h2>Бонус: проброс события c list-item.</h2>
         <List someProps={someData} />
       </div>
     );
