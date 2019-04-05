@@ -22,6 +22,15 @@ export default class App extends Component {
       id: this.maxId++
     };
   }
+  makeNewItem = text => {
+    const newItem = this.createItem(text);
+    this.setState(({ someData }) => {
+      const newArr = [...someData, newItem];
+      return {
+        someData: newArr
+      };
+    });
+  };
 
   render() {
     const { someData } = this.state;
@@ -31,7 +40,7 @@ export default class App extends Component {
         <h1>Пример добавления элемента.</h1>
         <h2>Бонус: проброс события c list-item.</h2>
         <List someProps={someData} />
-        <ItemAddForm />
+        <ItemAddForm onAddItem={this.makeNewItem} />
       </div>
     );
   }
