@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import List from "../list";
+import ItemAddForm from "../item-add-form";
 import "./app.css";
 
 export default class App extends Component {
@@ -30,6 +31,7 @@ export default class App extends Component {
         <h1>Пример добавления элемента.</h1>
         <h2>Бонус: проброс события c list-item.</h2>
         <List someProps={someData} />
+        <ItemAddForm />
       </div>
     );
   }
