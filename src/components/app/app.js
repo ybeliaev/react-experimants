@@ -22,8 +22,24 @@ export default class App extends Component {
       id: this.maxId++
     };
   }
-  makeNewItem = text => {
-    const newItem = this.createItem(text);
+  // вариант с использованием ф-ии
+  // onAddItem = text => {
+  //   const newItem = this.createItem(text);
+  //   this.setState(({ someData }) => {
+  //     const newArr = [...someData, newItem];
+  //     return {
+  //       someData: newArr
+  //     };
+  //   });
+  // };
+  // вариснт с использованием объекта
+  onAddItem = text => {
+    const newItem = {
+      label: text,
+      done: false,
+      important: false,
+      id: this.maxId++
+    };
     this.setState(({ someData }) => {
       const newArr = [...someData, newItem];
       return {
@@ -40,7 +56,7 @@ export default class App extends Component {
         <h1>Пример добавления элемента.</h1>
         <h2>Бонус: проброс события c list-item.</h2>
         <List someProps={someData} />
-        <ItemAddForm onAddItem={this.makeNewItem} />
+        <ItemAddForm onAddItem={this.onAddItem} />
       </div>
     );
   }
