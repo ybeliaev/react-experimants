@@ -7,12 +7,17 @@ export default class ItemAddForm extends React.Component {
   };
   onLabelChange = e => {
     this.setState({
+      // можно добавить ф-ию к e.target.value для обработки , напр. toUpperCase()
       label: e.target.value
     });
   };
   onSubmit = e => {
     e.preventDefault();
     this.props.onAddItem(this.state.label);
+    // сброс значения label
+    this.setState({
+      label: ""
+    });
   };
   render() {
     return (
@@ -22,6 +27,8 @@ export default class ItemAddForm extends React.Component {
           className="form-control"
           placeholder="Whats need to be asdone?"
           onChange={this.onLabelChange}
+          // для контролирования элемента:
+          value={this.state.label}
         />
         <p>{this.state.label}</p>
         <button className="btn btn-warning">Add item</button>
