@@ -40,6 +40,8 @@ export default class App extends Component {
       important: false,
       id: this.maxId++
     };
+    // защита от пустой строки
+    if (!text) return;
     this.setState(({ someData }) => {
       const newArr = [...someData, newItem];
       return {

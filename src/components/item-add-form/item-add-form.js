@@ -10,7 +10,10 @@ export default class ItemAddForm extends React.Component {
       label: e.target.value
     });
   };
-  onSubmit = () => {};
+  onSubmit = e => {
+    e.preventDefault();
+    this.props.onAddItem(this.state.label);
+  };
   render() {
     return (
       <form className="item-add-form" onSubmit={this.onSubmit}>
