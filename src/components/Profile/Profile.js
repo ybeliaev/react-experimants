@@ -1,10 +1,11 @@
 import React from 'react'
 
+import { useSelector } from 'react-redux'
+
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
-import Divider from '@material-ui/core/Divider'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import Avatar from '@material-ui/core/Avatar'
@@ -19,11 +20,17 @@ const useStyles = makeStyles((theme) => ({
     },
     inline: {
         display: 'inline',
+        marginRight: '5px',
     },
 }))
 
 export const Profile = () => {
     const classes = useStyles()
+    const { profile } = useSelector((state) => state.profile)
+
+    const profileName = profile?.name ? profile.name : 'Anonymous'
+    const profileText = profile?.text ? profile.text : 'nothing doing..'
+
     return (
         <Grid item xs={6}>
             <Paper className={classes.paper}>
@@ -32,7 +39,7 @@ export const Profile = () => {
                         <ListItemAvatar>
                             <Avatar
                                 alt="Remy Sharp"
-                                src="/static/images/avatar/1.jpg"
+                                src="../../static/images/avatar/1.jpg"
                             />
                         </ListItemAvatar>
                         <ListItemText
@@ -45,11 +52,9 @@ export const Profile = () => {
                                         className={classes.inline}
                                         color="textPrimary"
                                     >
-                                        Ali Connors
+                                        {profileName}
                                     </Typography>
-                                    {
-                                        " — I'll be in your neighborhood doing errands this…"
-                                    }
+                                    {profileText}
                                 </React.Fragment>
                             }
                         />
