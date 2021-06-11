@@ -8,7 +8,9 @@ import Container from '@material-ui/core/Container'
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        flexGrow: 1,
+        backgroundColor: '#cfe8fc',
+        minHeight: '100vh',
+        overflow: 'hidden',
     },
     paper: {
         height: 140,
@@ -24,11 +26,8 @@ function App() {
     return (
         <>
             <CssBaseline />
-            <Container maxWidth="lg">
-                <Typography
-                    component="div"
-                    style={{ backgroundColor: '#cfe8fc', height: '100vh' }}
-                >
+            <Container maxWidth="lg" className={classes.root}>
+                <Typography component="div">
                     <Box textAlign="justify" m={1}>
                         Ambitioni dedisse scripsisse iudicaretur. Cras mattis
                         iudicium purus sit amet fermentum. Donec sed odio
