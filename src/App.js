@@ -1,16 +1,23 @@
 import React from 'react'
 
+import { store } from './store'
+import { Provider } from 'react-redux'
+
+import { LoginForm, Profile } from './components'
+
 import { makeStyles } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
+import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        backgroundColor: '#cfe8fc',
+        backgroundColor: '#b8f5e7',
         minHeight: '100vh',
         overflow: 'hidden',
+        paddingTop: '10px',
     },
     paper: {
         height: 140,
@@ -24,18 +31,15 @@ const useStyles = makeStyles((theme) => ({
 function App() {
     const classes = useStyles()
     return (
-        <>
+        <Provider store={store}>
             <CssBaseline />
             <Container maxWidth="lg" className={classes.root}>
-                <Typography component="div">
-                    <Box textAlign="justify" m={1}>
-                        Ambitioni dedisse scripsisse iudicaretur. Cras mattis
-                        iudicium purus sit amet fermentum. Donec sed odio
-                        operae, eu vulputate felis rhoncus.
-                    </Box>
-                </Typography>
+                <Grid container spacing={3}>
+                    <Profile />
+                    <LoginForm />
+                </Grid>
             </Container>
-        </>
+        </Provider>
     )
 }
 
