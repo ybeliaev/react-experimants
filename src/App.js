@@ -3,7 +3,7 @@ import React from 'react'
 import { store } from './store'
 import { Provider } from 'react-redux'
 
-import { LoginForm, Profile } from './components'
+import { LoginForm, NavBar, Profile } from './components'
 import { Main } from './pages/Main'
 
 import { makeStyles } from '@material-ui/core/styles'
@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#b8f5e7',
         minHeight: '100vh',
         overflow: 'hidden',
-        paddingTop: '10px',
     },
     paper: {
         height: 140,
@@ -35,10 +34,10 @@ function App() {
         <Provider store={store}>
             <CssBaseline />
             <Container maxWidth="lg" className={classes.root}>
+                <NavBar />
                 <Grid container spacing={3}>
                     <Profile />
                     <LoginForm />
-                    <Main />
                 </Grid>
             </Container>
         </Provider>
