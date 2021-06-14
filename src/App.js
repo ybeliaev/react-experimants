@@ -4,7 +4,7 @@ import { store } from './store'
 import { Provider } from 'react-redux'
 
 import { LoginForm, NavBar, Profile } from './components'
-import { Main } from './pages/Main'
+import { Routing } from './routing'
 
 import { makeStyles } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -34,7 +34,7 @@ function App() {
         <Provider store={store}>
             <CssBaseline />
             <Container maxWidth="lg" className={classes.root}>
-                <NavBar />
+                <Routing />
                 <Grid container spacing={3}>
                     <Profile />
                     <LoginForm />

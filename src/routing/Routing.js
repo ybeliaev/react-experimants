@@ -1,11 +1,13 @@
 import React from 'react'
 
 import { HashRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import { Main, Contacts, About, NotFound } from '../pages/Main'
+import { Main, Contacts, About, NotFound } from '../pages'
+import { NavBar } from '../components/NavBar'
 import { path } from '../static/constants'
 export const Routing = () => {
     return (
         <Router>
+            <NavBar />
             <Switch>
                 <Route path={path.main} exact>
                     <Main />

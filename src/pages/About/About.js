@@ -18,10 +18,10 @@ export const About = () => {
     const classes = useStyles()
     return (
         <Grid container>
-            <Element article="ABOUT" color="ff9966" />
-            <Element article="ABOUT" color="ff9966" />
-            <Element article="ABOUT" color="ff9966" />
-            <Element article="ABOUT" color="ff9966" />
+            <Element article="ABOUT" color="33ccff" />
+            <Element article="ABOUT" color="33ccff" />
+            <Element article="ABOUT" color="33ccff" />
+            <Element article="ABOUT" color="33ccff" />
         </Grid>
     )
 }
