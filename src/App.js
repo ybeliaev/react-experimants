@@ -4,6 +4,7 @@ import { store } from './store'
 import { Provider } from 'react-redux'
 
 import { LoginForm, Profile } from './components'
+import { Main } from './pages/Main'
 
 import { makeStyles } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -37,6 +38,7 @@ function App() {
                 <Grid container spacing={3}>
                     <Profile />
                     <LoginForm />
+                    <Main />
                 </Grid>
             </Container>
         </Provider>
