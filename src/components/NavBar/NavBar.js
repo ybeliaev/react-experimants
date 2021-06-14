@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { path } from '../../static/constants'
 
@@ -19,6 +19,9 @@ const useStyles = makeStyles({
 export const NavBar = () => {
     const classes = useStyles()
     const [value, setValue] = React.useState(0)
+    useEffect(() => {
+        setValue(0)
+    }, [])
 
     const history = useHistory()
 
