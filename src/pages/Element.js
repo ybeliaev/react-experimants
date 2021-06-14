@@ -19,15 +19,15 @@ const useStyles = makeStyles({
     },
 })
 
-export const Element = ({ article }) => {
+export const Element = ({ article, color }) => {
     const classes = useStyles()
-    console.log({ article })
+    console.log({ color })
     return (
         <Card className={classes.root}>
             <CardActionArea>
                 <CardMedia
                     className={classes.media}
-                    image="https://via.placeholder.com/150/FF0000/FFFFFF"
+                    image={`https://via.placeholder.com/150/${color}/FFFFFF`}
                     title="Contemplative Reptile"
                 />
                 <CardContent>
