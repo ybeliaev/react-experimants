@@ -1,0 +1,1 @@
+export { PageAnimated } from './PageAnimated'
