@@ -3,6 +3,7 @@ import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
 
+import { PageAnimated } from '../../components/PageAnimated'
 import { Element } from '../Element'
 
 const useStyles = makeStyles({
@@ -15,13 +16,14 @@ const useStyles = makeStyles({
 })
 
 export const About = () => {
-    const classes = useStyles()
     return (
-        <Grid container>
-            <Element article="ABOUT" color="33ccff" />
-            <Element article="ABOUT" color="33ccff" />
-            <Element article="ABOUT" color="33ccff" />
-            <Element article="ABOUT" color="33ccff" />
-        </Grid>
+        <PageAnimated>
+            <Grid container>
+                <Element article="ABOUT" color="33ccff" />
+                <Element article="ABOUT" color="33ccff" />
+                <Element article="ABOUT" color="33ccff" />
+                <Element article="ABOUT" color="33ccff" />
+            </Grid>
+        </PageAnimated>
     )
 }
