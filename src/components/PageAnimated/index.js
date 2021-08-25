@@ -1,1 +1,0 @@
-export { PageAnimated } from './PageAnimated'
