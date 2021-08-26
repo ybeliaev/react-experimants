@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types';
+import { clamp } from '../../static/constants'
+
+
 
 const Interface = ({min, max}) => {
     const [count, setCount] = useState(0)
-    const clamp = (number, min, max) => {
-        return number > max ? max : number < min ? min : number
-    }
+
     const currentCount = (val) => {
-        setCount(clamp(val,min, max))
+        setCount(clamp(val, min, max))
         console.log(val)
     }
     const inc = () => currentCount(count + 1)
@@ -19,6 +21,13 @@ const Interface = ({min, max}) => {
             <button onClick={dec}>-</button>
         </div>
     )
+
 }
+
+Interface.propTypes = {
+    min: PropTypes.number,
+    max: PropTypes.number,
+};
+
 
 export default Interface
