@@ -1,8 +1,8 @@
 import React from 'react'
-import Counter from '../Counter'
-import { productFromServer } from '../../static/constants'
+import Card from '../Card'
+import PropTypes from 'prop-types';
 
-function Cards(props) {
+function Cards({data}) {
     return (
         <table>
             <thead>
@@ -14,15 +14,17 @@ function Cards(props) {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>{productFromServer[0].title}</td>
-                    <td>{productFromServer[0].price}</td>
-                    <td><Counter/></td>
-                    <td>{productFromServer[0].cnt * productFromServer[0].price}</td>
+            {data.map((elem, idx) => (
+                <tr key={elem.id}>
+                    <Card dataGood={elem} />
                 </tr>
+            ))}
             </tbody>
         </table>
     )
+}
+Cards.propTypes = {
+    data: PropTypes.array
 }
 
 export default Cards
