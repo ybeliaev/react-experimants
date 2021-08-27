@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types';
 import { clamp } from '../../static/constants'
 
+import InputField from '../InputField'
 
 
-const Interface = ({min, max}) => {
+
+const Counter = ({min, max}) => {
     const [count, setCount] = useState(0)
 
     const currentCount = (val) => {
@@ -12,22 +14,23 @@ const Interface = ({min, max}) => {
         console.log(val)
     }
     const inc = () => currentCount(count + 1)
-
     const dec = () => currentCount(count - 1)
+
+
     return (
         <div>
             <button onClick={inc}>+</button>
-            <span>{count}</span>
+            <InputField value={count} />
             <button onClick={dec}>-</button>
         </div>
     )
 
 }
 
-Interface.propTypes = {
+Counter.propTypes = {
     min: PropTypes.number,
     max: PropTypes.number,
 };
 
 
-export default Interface
+export default Counter
