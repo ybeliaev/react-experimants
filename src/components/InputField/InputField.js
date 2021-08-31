@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function InputField({value}) {
-    const handlerChangeInput = e => {
-        console.log(e.target.value)
+function InputField({value,handlerChangeInput}) {
+    const handlerBlurChangeInput = e => {
+        console.log("onBlur: ",e.target.value)
     }
     const handlerKeyPress = e => {
         if(e.key === 'Enter'){
@@ -11,9 +11,10 @@ function InputField({value}) {
         }
     }
 
+
     return (
         <div>
-            <input type="number" value={value} onBlur={handlerChangeInput} onKeyPress={handlerKeyPress}/>
+            <input type="number" value={value} onBlur={handlerBlurChangeInput} onChange={e=>handlerChangeInput(e)} onKeyPress={handlerKeyPress}/>
         </div>
     )
 }
@@ -24,6 +25,7 @@ function InputField({value}) {
              PropTypes.number,
          ]
      ) ,
+     handlerChangeInput: PropTypes.func
  };
 
 export default InputField

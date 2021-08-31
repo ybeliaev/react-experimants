@@ -2,19 +2,19 @@ import React from 'react'
 
 import Counter from '../Counter'
 import PropTypes from 'prop-types'
-import Cards from '../Cards'
 
-function Card({dataGood}) {
+function Card({dataGood,}) {
     return (
         <>
             <td>{dataGood.title}</td>
             <td>{dataGood.price}</td>
-            <td><Counter/></td>
-            <td>{dataGood.price * dataGood.cnt}</td>
+            <td><Counter min={0} max={dataGood.rest} id={dataGood.id} /></td>
+            <td>{dataGood.price * dataGood.currentNumber}</td>
         </>
     )
 }
 Card.propTypes = {
-    dataGood: PropTypes.object
+    dataGood: PropTypes.object,
+
 }
 export default Card

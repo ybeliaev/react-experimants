@@ -3,6 +3,7 @@ import Card from '../Card'
 import PropTypes from 'prop-types';
 
 function Cards({data}) {
+
     return (
         <table>
             <thead>
