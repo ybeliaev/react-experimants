@@ -8,7 +8,7 @@ function Card({dataGood,}) {
         <>
             <td>{dataGood.title}</td>
             <td>{dataGood.price}</td>
-            <td><Counter min={0} max={dataGood.rest} id={dataGood.id} /></td>
+            <td><Counter min={0} max={dataGood.rest}  /></td>
             <td>{dataGood.price * dataGood.currentNumber}</td>
         </>
     )
