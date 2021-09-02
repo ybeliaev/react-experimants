@@ -1,38 +1,41 @@
 import React from 'react'
-import PropTypes, { number } from 'prop-types'
+import PropTypes from 'prop-types'
 import { clamp } from '../../static/constants'
 
-
-
-
-const Counter = ({min, max, count, id}) => {
-
-
-    const currentCount = (val) => {
-        return clamp(val, min, max)
-
+const Counter = ({
+    min,
+    max,
+    countFromButton,
+    handlerInputOnChange,
+    onChangeFromBtn,
+}) => {
+    const applyCurrent = (val) => {
+        let newCurrent = clamp(val, min, max)
+        onChangeFromBtn(newCurrent)
     }
-    const inc = () => currentCount(count + 1)
-    const dec = () => currentCount(count - 1)
-
-
+    const inc = () => applyCurrent(countFromButton + 1)
+    const dec = () => applyCurrent(countFromButton - 1)
 
     return (
         <div>
             <button onClick={inc}>+</button>
-            <input type='number' />
+            <input
+                value={countFromButton}
+                type="number"
+                onChange={handlerInputOnChange}
+            />
             <button onClick={dec}>-</button>
         </div>
     )
-
 }
 
 Counter.propTypes = {
     min: PropTypes.number,
     max: PropTypes.number,
     id: PropTypes.number,
-    count: PropTypes.number
-};
-
+    countFromButton: PropTypes.number,
+    handlerInputOnChange: PropTypes.func,
+    onChangeFromBtn: PropTypes.func,
+}
 
 export default Counter

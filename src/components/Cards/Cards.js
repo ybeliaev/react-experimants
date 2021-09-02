@@ -1,9 +1,8 @@
 import React from 'react'
-import Card from '../Card'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import Counter from '../Counter'
 
-function Cards({data}) {
-
+function Cards({ data }) {
     return (
         <table>
             <thead>
@@ -15,17 +14,22 @@ function Cards({data}) {
                 </tr>
             </thead>
             <tbody>
-            {data.map((elem, idx) => (
-                <tr key={elem.id}>
-                    <Card dataGood={elem} />
-                </tr>
-            ))}
+                {data.map((elem, idx) => (
+                    <tr key={elem.id}>
+                        <td>{elem.title}</td>
+                        <td>{elem.price}</td>
+                        <td>
+                            <Counter min={0} max={elem.rest} />
+                        </td>
+                        <td>{elem.price * elem.currentNumber}</td>
+                    </tr>
+                ))}
             </tbody>
         </table>
     )
 }
 Cards.propTypes = {
-    data: PropTypes.array
+    data: PropTypes.array,
 }
 
 export default Cards
