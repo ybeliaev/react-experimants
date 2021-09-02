@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Counter from '../Counter'
 
-function Cards({ data }) {
+function Cards({ data, onChangeCount }) {
     return (
         <table>
             <thead>
@@ -19,7 +19,14 @@ function Cards({ data }) {
                         <td>{elem.title}</td>
                         <td>{elem.price}</td>
                         <td>
-                            <Counter min={0} max={elem.rest} />
+                            <Counter
+                                min={0}
+                                max={elem.rest}
+                                countFromButton={elem.currentNumber}
+                                onChangeCount={(val) =>
+                                    console.log({ idx, val })
+                                }
+                            />
                         </td>
                         <td>{elem.price * elem.currentNumber}</td>
                     </tr>
@@ -30,6 +37,7 @@ function Cards({ data }) {
 }
 Cards.propTypes = {
     data: PropTypes.array,
+    onChangeCount: PropTypes.func,
 }
 
 export default Cards

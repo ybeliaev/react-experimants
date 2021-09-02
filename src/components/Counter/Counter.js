@@ -7,14 +7,14 @@ const Counter = ({
     max,
     countFromButton,
     handlerInputOnChange,
-    onChangeFromBtn,
+    onChangeCount,
 }) => {
-    const applyCurrent = (val) => {
+    const applyCurrentCount = (val) => {
         let newCurrent = clamp(val, min, max)
-        onChangeFromBtn(newCurrent)
+        onChangeCount(newCurrent)
     }
-    const inc = () => applyCurrent(countFromButton + 1)
-    const dec = () => applyCurrent(countFromButton - 1)
+    const inc = () => applyCurrentCount(countFromButton + 1)
+    const dec = () => applyCurrentCount(countFromButton - 1)
 
     return (
         <div>
@@ -35,7 +35,7 @@ Counter.propTypes = {
     id: PropTypes.number,
     countFromButton: PropTypes.number,
     handlerInputOnChange: PropTypes.func,
-    onChangeFromBtn: PropTypes.func,
+    onChangeCount: PropTypes.func,
 }
 
 export default Counter
