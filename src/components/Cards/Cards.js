@@ -24,7 +24,7 @@ function Cards({ data, onChangeCount }) {
                                 max={elem.rest}
                                 countFromButton={elem.currentNumber}
                                 onChangeCount={(val) =>
-                                    console.log({ idx, val })
+                                    onChangeCount(elem.id, val)
                                 }
                             />
                         </td>
