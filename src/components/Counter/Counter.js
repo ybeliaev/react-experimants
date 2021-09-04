@@ -15,15 +15,14 @@ const Counter = ({
     }
     const inc = () => applyCurrentCount(countFromButton + 1)
     const dec = () => applyCurrentCount(countFromButton - 1)
-
+    const inputStr = (e) => {
+        let val = parseInt(e.target.value)
+        onChangeCount(isNaN(val) ? min : val)
+    }
     return (
         <div>
             <button onClick={inc}>+</button>
-            <input
-                value={countFromButton}
-                type="number"
-                onChange={handlerInputOnChange}
-            />
+            <input value={countFromButton} type="number" onChange={inputStr} />
             <button onClick={dec}>-</button>
         </div>
     )

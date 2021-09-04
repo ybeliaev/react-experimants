@@ -14,7 +14,7 @@ function Cards({ data, onChangeCount }) {
                 </tr>
             </thead>
             <tbody>
-                {data.map((elem, idx) => (
+                {data.map((elem) => (
                     <tr key={elem.id}>
                         <td>{elem.title}</td>
                         <td>{elem.price}</td>
