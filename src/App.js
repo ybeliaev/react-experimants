@@ -6,6 +6,10 @@ import Cards from './components/Cards'
 
 function App() {
     const [products, setProduct] = useState(productFromServer)
+    let total = products.reduce(
+        (acc, el) => acc + el.price * el.currentNumber,
+        0
+    )
     const changeCountProduct = (id, count) => {
         setProduct(
             products.map((product) =>
@@ -14,11 +18,20 @@ function App() {
                     : { ...product, currentNumber: count }
             )
         )
-        console.log(count)
+    }
+    const remove = (id) => {
+        setProduct(products.filter((product) => product.id !== id))
     }
     return (
         <div>
-            <Cards data={products} onChangeCount={changeCountProduct} />
+            <Cards
+                data={products}
+                onChangeCount={changeCountProduct}
+                remove={remove}
+            />
+            <div>
+                <strong>Total {total}$</strong>
+            </div>
         </div>
     )
 }

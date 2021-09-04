@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Counter from '../Counter'
 
-function Cards({ data, onChangeCount }) {
+function Cards({ data, onChangeCount, remove }) {
     return (
         <table>
             <thead>
@@ -29,6 +29,14 @@ function Cards({ data, onChangeCount }) {
                             />
                         </td>
                         <td>{elem.price * elem.currentNumber}</td>
+                        <td>
+                            <button
+                                type="button"
+                                onClick={() => remove(elem.id)}
+                            >
+                                x
+                            </button>
+                        </td>
                     </tr>
                 ))}
             </tbody>
@@ -38,6 +46,7 @@ function Cards({ data, onChangeCount }) {
 Cards.propTypes = {
     data: PropTypes.array,
     onChangeCount: PropTypes.func,
+    remove: PropTypes.func,
 }
 
 export default Cards

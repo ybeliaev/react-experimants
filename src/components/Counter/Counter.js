@@ -2,13 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { clamp } from '../../static/constants'
 
-const Counter = ({
-    min,
-    max,
-    countFromButton,
-    handlerInputOnChange,
-    onChangeCount,
-}) => {
+const Counter = ({ min, max, countFromButton, onChangeCount }) => {
     const applyCurrentCount = (val) => {
         let newCurrent = clamp(val, min, max)
         onChangeCount(newCurrent)
