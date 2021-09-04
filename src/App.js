@@ -30,7 +30,8 @@ function App() {
                 remove={remove}
             />
             <div>
-                <strong>Total {total}$</strong>
+                <span>Total </span>
+                <strong>{total}</strong>
             </div>
         </div>
     )

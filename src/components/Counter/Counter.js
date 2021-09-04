@@ -1,22 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { clamp } from '../../static/constants'
 
 const Counter = ({ min, max, countFromButton, onChangeCount }) => {
+    const [valueInput, setValueInput] = useState(countFromButton)
+
     const applyCurrentCount = (val) => {
         let newCurrent = clamp(val, min, max)
         onChangeCount(newCurrent)
+        setValueInput(newCurrent)
     }
     const inc = () => applyCurrentCount(countFromButton + 1)
     const dec = () => applyCurrentCount(countFromButton - 1)
     const inputStr = (e) => {
-        let val = parseInt(e.target.value)
-        onChangeCount(isNaN(val) ? min : val)
+        setValueInput(e.target.value)
+    }
+    const inputStrBlur = () => {
+        let val = parseInt(valueInput)
+        console.log({ val })
+        applyCurrentCount(isNaN(val) ? min : val)
     }
     return (
         <div>
             <button onClick={inc}>+</button>
-            <input value={countFromButton} type="number" onChange={inputStr} />
+            <input
+                value={valueInput}
+                type="number"
+                onChange={inputStr}
+                onBlur={inputStrBlur}
+            />
             <button onClick={dec}>-</button>
         </div>
     )
