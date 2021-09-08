@@ -1,13 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { clamp } from '../../static/constants'
 
 const Counter = ({ min, max, countFromButton, onChangeCount }) => {
     const [valueInput, setValueInput] = useState(countFromButton)
-
+    useEffect(() => {
+        setValueInput(countFromButton)
+    }, [countFromButton])
     const applyCurrentCount = (val) => {
         let newCurrent = clamp(val, min, max)
-        onChangeCount(newCurrent)
+        if (newCurrent !== countFromButton) {
+            onChangeCount(newCurrent)
+        }
         setValueInput(newCurrent)
     }
     const inc = () => applyCurrentCount(countFromButton + 1)
@@ -17,7 +21,6 @@ const Counter = ({ min, max, countFromButton, onChangeCount }) => {
     }
     const inputStrBlur = () => {
         let val = parseInt(valueInput)
-        console.log({ val })
         applyCurrentCount(isNaN(val) ? min : val)
     }
     return (
