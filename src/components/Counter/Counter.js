@@ -7,6 +7,7 @@ const Counter = ({ min, max, countFromButton, onChangeCount }) => {
     useEffect(() => {
         setValueInput(countFromButton)
     }, [countFromButton])
+
     const applyCurrentCount = (val) => {
         let newCurrent = clamp(val, min, max)
         if (newCurrent !== countFromButton) {

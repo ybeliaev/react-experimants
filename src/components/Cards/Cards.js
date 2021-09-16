@@ -22,13 +22,13 @@ function Cards({ data, onChangeCount, remove }) {
                             <Counter
                                 min={0}
                                 max={elem.rest}
-                                countFromButton={elem.currentNumber}
+                                countFromButton={elem.selectedProduct}
                                 onChangeCount={(val) =>
                                     onChangeCount(elem.id, val)
                                 }
                             />
                         </td>
-                        <td>{elem.price * elem.currentNumber}</td>
+                        <td>{elem.price * elem.selectedProduct}</td>
                         <td>
                             <button
                                 type="button"
