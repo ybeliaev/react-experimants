@@ -1,39 +1,42 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { clamp } from '../../static/constants'
 
 const Counter = ({ min, max, countFromButton, onChangeCount }) => {
-    const [valueInput, setValueInput] = useState(countFromButton)
+    let inputRef = useRef()
+    let updInput = (num) => (inputRef.current.value = num)
     useEffect(() => {
-        setValueInput(countFromButton)
+        updInput(countFromButton)
     }, [countFromButton])
 
     const applyCurrentCount = (val) => {
         let newCurrent = clamp(val, min, max)
+        updInput = (num) => (inputRef.current.value = num)
         if (newCurrent !== countFromButton) {
             onChangeCount(newCurrent)
         }
-        setValueInput(newCurrent)
     }
     const inc = () => applyCurrentCount(countFromButton + 1)
     const dec = () => applyCurrentCount(countFromButton - 1)
-    const inputStr = (e) => {
-        setValueInput(e.target.value)
-    }
-    const inputStrBlur = () => {
-        let val = parseInt(valueInput)
+
+    const inputStrBlur = (e) => {
+        let val = parseInt(e.target.value)
         applyCurrentCount(isNaN(val) ? min : val)
     }
     return (
         <div>
-            <button onClick={inc}>+</button>
+            <button onClick={inc} disabled={max <= countFromButton}>
+                +
+            </button>
             <input
-                value={valueInput}
+                defaultValue={countFromButton}
                 type="number"
-                onChange={inputStr}
+                ref={inputRef}
                 onBlur={inputStrBlur}
             />
-            <button onClick={dec}>-</button>
+            <button onClick={dec} disabled={min >= countFromButton}>
+                -
+            </button>
         </div>
     )
 }
@@ -41,9 +44,7 @@ const Counter = ({ min, max, countFromButton, onChangeCount }) => {
 Counter.propTypes = {
     min: PropTypes.number,
     max: PropTypes.number,
-    id: PropTypes.number,
     countFromButton: PropTypes.number,
-    handlerInputOnChange: PropTypes.func,
     onChangeCount: PropTypes.func,
 }
 
