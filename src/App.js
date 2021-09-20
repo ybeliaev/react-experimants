@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import './App.css'
 import PropTypes from 'prop-types'
 
 import { productFromServer } from './static/constants'
 import Cards from './components/Cards'
+import Modal from './components/Modal'
 
 function App() {
     const [products, setProduct] = useState(productFromServer)
@@ -33,6 +35,7 @@ function App() {
                 <span>Total </span>
                 <strong>{total}</strong>
             </div>
+            <Modal />
         </div>
     )
 }
