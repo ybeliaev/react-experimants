@@ -11,6 +11,7 @@ function Cards({ data, onChangeCount, remove }) {
                     <th>Price</th>
                     <th>Count</th>
                     <th>Total</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>

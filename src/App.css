@@ -1,11 +1,41 @@
-body{
-  font-family: 'Poppins', sans-serif;
+:root {
+  --blue: #356af6;
 }
 
+body{
+  font-family: 'Poppins', sans-serif;
+  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  display: flex;
+  min-height: 80vw;
+  flex-direction: column;
+  align-items: center;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+  background-color: rgba(242, 246, 240, 0.7);
+}
+th{
+  background-color: rgba(242, 246, 240);
+}
+
+tr:nth-child(even) {
+  background-color: rgba(242, 242, 242);
+}
 .btn {
   border: none;
+  border-radius: 8px;
+  background-color: var(--blue);
   color: white;
   padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
+
 }

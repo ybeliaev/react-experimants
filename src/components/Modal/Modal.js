@@ -1,21 +1,38 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import styles from './modal.module.css'
-import PropTypes from 'prop-types'
+
+import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 
 function Modal(props) {
+    const ref = useRef()
+    const [isModalOpen, setModalOpen] = useState(false)
+
+    useOnClickOutside(ref, () => setModalOpen(false))
+
     return (
-        <div>
-            <h2>Modal Example</h2>
+        <>
+            {isModalOpen ? (
+                <div>
+                    <h2>Modal Example</h2>
 
-            <button className="btn">Open Modal</button>
-
-            <div className={styles.modal}>
-                <div className={styles.modal_content}>
-                    <span className={styles.close}>&times;</span>
-                    <p>Some text in the Modal..</p>
+                    <div className={styles.modal}>
+                        <div className={styles.modal_content} ref={ref}>
+                            <span
+                                className={styles.close}
+                                onClick={() => setModalOpen(false)}
+                            >
+                                &times;
+                            </span>
+                            <p>Some text in the Modal..</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            ) : (
+                <button className={`btn`} onClick={() => setModalOpen(true)}>
+                    Open Modal
+                </button>
+            )}
+        </>
     )
 }
 
