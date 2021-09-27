@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md'
 import { clamp } from '../../static/constants'
 
+import styles from './counter.module.css'
+
 const Counter = ({ min, max, countFromButton, onChangeCount }) => {
     let inputRef = useRef()
     let updInput = (num) => (inputRef.current.value = num)
@@ -25,22 +27,20 @@ const Counter = ({ min, max, countFromButton, onChangeCount }) => {
         applyCurrentCount(isNaN(val) ? min : val)
     }
     return (
-        <div>
-            <MdKeyboardArrowUp onClick={inc} disabled={max <= countFromButton}>
-                +
-            </MdKeyboardArrowUp>
+        <div className={styles.counter_wrapper}>
+            <button onClick={inc} disabled={max <= countFromButton}>
+                <MdKeyboardArrowUp />
+            </button>
             <input
+                className={styles.input_counter}
                 defaultValue={countFromButton}
-                type="number"
+                type="text"
                 ref={inputRef}
                 onBlur={inputStrBlur}
             />
-            <MdKeyboardArrowDown
-                onClick={dec}
-                disabled={min >= countFromButton}
-            >
-                -
-            </MdKeyboardArrowDown>
+            <button onClick={dec} disabled={min >= countFromButton}>
+                <MdKeyboardArrowDown />
+            </button>
         </div>
     )
 }
