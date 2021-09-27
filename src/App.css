@@ -1,5 +1,6 @@
 :root {
   --blue: #356af6;
+  --red: #e11b2c;
 }
 
 body{
@@ -37,5 +38,10 @@ tr:nth-child(even) {
   padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
-
+}
+.btn-alert{
+  background-color: var(--red);
+  padding: 5px 8px;
+  font-size: 16px;
+  cursor: pointer;
 }

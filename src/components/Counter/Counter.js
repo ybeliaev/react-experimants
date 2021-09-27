@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
+import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md'
 import { clamp } from '../../static/constants'
 
 const Counter = ({ min, max, countFromButton, onChangeCount }) => {
@@ -25,18 +26,21 @@ const Counter = ({ min, max, countFromButton, onChangeCount }) => {
     }
     return (
         <div>
-            <button onClick={inc} disabled={max <= countFromButton}>
+            <MdKeyboardArrowUp onClick={inc} disabled={max <= countFromButton}>
                 +
-            </button>
+            </MdKeyboardArrowUp>
             <input
                 defaultValue={countFromButton}
                 type="number"
                 ref={inputRef}
                 onBlur={inputStrBlur}
             />
-            <button onClick={dec} disabled={min >= countFromButton}>
+            <MdKeyboardArrowDown
+                onClick={dec}
+                disabled={min >= countFromButton}
+            >
                 -
-            </button>
+            </MdKeyboardArrowDown>
         </div>
     )
 }

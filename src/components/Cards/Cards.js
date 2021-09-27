@@ -32,6 +32,7 @@ function Cards({ data, onChangeCount, remove }) {
                         <td>{elem.price * elem.selectedProduct}</td>
                         <td>
                             <button
+                                className="btn btn-alert"
                                 type="button"
                                 onClick={() => remove(elem.id)}
                             >
