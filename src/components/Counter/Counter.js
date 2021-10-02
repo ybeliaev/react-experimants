@@ -23,7 +23,7 @@ const Counter = ({ min, max, countFromButton, onChangeCount }) => {
     const dec = () => applyCurrentCount(countFromButton - 1)
 
     const inputStrBlur = (e) => {
-        let val = parseInt(e.target.value)
+        let val = parseInt(e.target.value, 10)
         applyCurrentCount(isNaN(val) ? min : val)
     }
     return (

@@ -25,14 +25,14 @@ function App() {
         setProduct(products.filter((product) => product.id !== id))
     }
     return (
-        <div>
+        <div className="wrapper">
             <Cards
                 data={products}
                 onChangeCount={changeCountProduct}
                 remove={remove}
             />
             <div>
-                <span>Total </span>
+                <span>Total: </span>
                 <strong>{total}</strong>
             </div>
             <Modal />
