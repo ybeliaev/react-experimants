@@ -3,7 +3,7 @@ import styles from './modal.module.css'
 
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 
-function Modal(props) {
+function Modal() {
     const ref = useRef()
     const [isModalOpen, setModalOpen] = useState(false)
 
