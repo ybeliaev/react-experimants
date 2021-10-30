@@ -31,7 +31,24 @@
 
 .close:hover,
 .close:focus {
-    color: #000;
+    color: #1a3d72;
     text-decoration: none;
     cursor: pointer;
+}
+.modal_input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.modal_button {
+    background-color: #04b7b5;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
 }

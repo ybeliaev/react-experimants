@@ -24,6 +24,24 @@ function Modal() {
                                 &times;
                             </span>
                             <p>Some text in the Modal..</p>
+                            <label htmlFor="name">Name</label>
+                            <input type="text" className={styles.modal_input} />
+                            <label htmlFor="email">Email</label>
+                            <input
+                                type="email"
+                                className={styles.modal_input}
+                            />
+                            <label htmlFor="password">Password</label>
+                            <input
+                                type="password"
+                                className={styles.modal_input}
+                            />
+                            <button
+                                type="button"
+                                className={styles.modal_button}
+                            >
+                                Send
+                            </button>
                         </div>
                     </div>
                 </div>
