@@ -11,12 +11,19 @@ class CartStore {
             0
         )
     }
-    change = (id, selectProd) => {}
+    changeCountProduct = (id, count) => {
+        this.products.map((product) =>
+            product.id !== id ? product : { ...product, selectedProduct: count }
+        )
+    }
+    remove = (id) => {
+        this.products.filter((product) => product.id !== id)
+    }
     constructor() {
         makeObservable(this, {
             products: observable,
             total: computed,
-            change: action.bound,
+            changeCountProduct: action.bound,
             remove: action.bound,
         })
     }
