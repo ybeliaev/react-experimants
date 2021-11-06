@@ -3,8 +3,16 @@ import { makeObservable, action, observable, computed } from 'mobx'
 import { productFromServer } from '../static/constants'
 
 class CartStore {
+    constructor() {
+        makeObservable(this, {
+            products: observable,
+            total: computed,
+            changeCountProduct: action.bound,
+            remove: action.bound,
+        })
+    }
     products = productFromServer
-    // расчитать общую сумму вібранніх товаров
+    // расчитать общую сумму выбранных товаров
     get total() {
         return this.products.reduce(
             (acc, product) => acc + product.selectedProduct * product.price,
@@ -18,14 +26,6 @@ class CartStore {
     }
     remove = (id) => {
         this.products.filter((product) => product.id !== id)
-    }
-    constructor() {
-        makeObservable(this, {
-            products: observable,
-            total: computed,
-            changeCountProduct: action.bound,
-            remove: action.bound,
-        })
     }
 }
 
