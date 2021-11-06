@@ -15,7 +15,7 @@ class OrderStore {
         password: { label: 'Password', value: '' },
     }
     // check for completeness of all fields
-    get iaValid() {
+    get isValid() {
         return Object.values(this.formData).every((field) => field.value !== '')
     }
     change = (name, value) => {

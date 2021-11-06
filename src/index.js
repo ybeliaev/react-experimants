@@ -2,15 +2,21 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import CartStore from './store/cart'
+import storeContext from './contexts/store'
+import orderStore from './store/order'
+import cartStore from './store/cart'
+let stores = {
+    order: orderStore,
+    cart: cartStore,
+}
 
 ReactDOM.render(
-    <React.StrictMode>
+    <storeContext.Provider value={stores}>
         <App />
-    </React.StrictMode>,
+    </storeContext.Provider>,
     document.getElementById('root')
 )
+console.log(CartStore.total)
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals()

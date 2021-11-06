@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import Counter from '../Counter'
 
+import storeContext from '../../contexts/store'
+import { observer } from 'mobx-react-lite'
+
 function Cards({ data, onChangeCount, remove }) {
+    let { cart } = useContext(storeContext)
+    console.log({ cart })
     return (
         <table>
             <thead>
