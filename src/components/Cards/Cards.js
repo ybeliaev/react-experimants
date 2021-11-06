@@ -2,12 +2,7 @@ import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import Counter from '../Counter'
 
-import storeContext from '../../contexts/store'
-import { observer } from 'mobx-react-lite'
-
-function Cards({ data, onChangeCount, remove }) {
-    let { cart } = useContext(storeContext)
-    console.log({ cart })
+function Cards() {
     return (
         <table>
             <thead>
@@ -20,7 +15,7 @@ function Cards({ data, onChangeCount, remove }) {
                 </tr>
             </thead>
             <tbody>
-                {data.map((elem) => (
+                {products.map((elem) => (
                     <tr key={elem.id}>
                         <td>{elem.title}</td>
                         <td>{elem.price}</td>

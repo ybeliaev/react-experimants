@@ -1,5 +1,4 @@
 import { makeObservable, observable, computed, action } from 'mobx'
-import { observer } from 'mobx-react-lite'
 
 class OrderStore {
     constructor() {

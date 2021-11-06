@@ -1,34 +1,23 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './App.css'
 import PropTypes from 'prop-types'
 
-import { productFromServer } from './static/constants'
 import Cards from './components/Cards'
 import Modal from './components/Modal'
 
+import storeContext from './contexts/store'
+import { observer } from 'mobx-react-lite'
+
 function App() {
-    const [products, setProduct] = useState(productFromServer)
-    let total = products.reduce(
-        (acc, el) => acc + el.price * el.selectedProduct,
-        0
-    )
-    const changeCountProduct = (id, count) => {
-        setProduct(
-            products.map((product) =>
-                product.id !== id
-                    ? product
-                    : { ...product, selectedProduct: count }
-            )
-        )
-    }
-    const remove = (id) => {
-        setProduct(products.filter((product) => product.id !== id))
-    }
+    let { cart } = useContext(storeContext)
+    console.log({ cart })
+    let { products, remove, onChangeCount, total } = cart
+
     return (
         <div className="wrapper">
             <Cards
                 data={products}
-                onChangeCount={changeCountProduct}
+                onChangeCount={onChangeCount}
                 remove={remove}
             />
             <div>
