@@ -1,0 +1,17 @@
+import React from 'react'
+
+
+export const Card = () => {
+    return (
+        <div className="card">
+      <img src={"https://via.placeholder.com/100"} alt="avatar" />
+      <div className="container">
+        <h4>
+          <b>{'text'}</b>
+        </h4>
+      </div>
+      <button>edit</button>
+      <button>del</button>
+    </div>
+    )
+}
