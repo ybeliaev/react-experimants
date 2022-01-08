@@ -16,17 +16,17 @@ const reducer = (state, action) => {
             }            
     
         default:
-            return state
+            return initialState
     }
 }
 
 function App() {
-const [state, dispatch] = useReducer(reducer, initialState)    
+    const [state, dispatch] = useReducer(reducer, initialState);   
 
     return (
         <div>
-            <Input />
-            <CardsList />
+            <Input dispatch={dispatch}/>
+            <CardsList state={state}/>
         </div>
     )
 }

@@ -2,6 +2,9 @@ import React from 'react'
 
 
 export const Card = () => {
+    const handleDelete = () => {
+        console.log("del")
+    }
     return (
         <div className="card">
             <img src={'https://via.placeholder.com/100'} alt="avatar" />
@@ -11,7 +14,7 @@ export const Card = () => {
                 </h4>
             </div>
             <button className="btn">edit</button>
-            <button className="btn btn-alert">del</button>
+            <button className="btn btn-alert" onClick={handleDelete}>del</button>
         </div>
     )
 }
