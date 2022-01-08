@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 
-export const Card = ({name}) => {
+export const Card = ({name, dispatch}) => {
     const handleDelete = () => {
-        console.log("del")
+        console.log("del ", this)
     }
     return (
         <div className="card">
@@ -20,5 +20,6 @@ export const Card = ({name}) => {
     )
 }
 Card.propTypes ={
-    name: PropTypes.string
+    name: PropTypes.string,
+    dispatch: PropTypes.func
 }

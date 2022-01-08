@@ -1,15 +1,17 @@
 import React from 'react'
+import { nanoid } from 'nanoid'
+
 import PropTypes from 'prop-types';
 import { Card } from "../Card"
 
 
-export const CardsList = ({state}) => {
+export const CardsList = ({state, dispatch}) => {
     const {nameList} = state
     console.log(state)
     return (
     <div className='cardList_container'>
-        {nameList.map((name, idx) => {
-            return <Card name={name} key={idx} />
+        {nameList.map((name) => {
+            return <Card name={name} key={nanoid(6)} dispatch={dispatch}/>
         })}
     
     </div>    
@@ -17,5 +19,6 @@ export const CardsList = ({state}) => {
     )
 }
 CardsList.propTypes ={
-    state: PropTypes.object
+    state: PropTypes.object,
+    dispatch: PropTypes.func
 }
