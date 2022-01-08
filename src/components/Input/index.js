@@ -20,7 +20,7 @@ export const Input = ({dispatch}) => {
     }
     return (
         <div>
-            <input type="text" onChange={handleInput}/>
+            <input type="text" value={name} onChange={handleInput}/>
             <button type="button" className='btn' onClick={handleAddName}>+</button>
         </div>
     )

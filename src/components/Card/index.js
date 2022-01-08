@@ -20,5 +20,5 @@ export const Card = ({name}) => {
     )
 }
 Card.propTypes ={
-    name: PropTypes.object
+    name: PropTypes.string
 }
