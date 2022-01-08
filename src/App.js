@@ -13,7 +13,10 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 nameList: [...state.nameList, action.payload],
-            }            
+            }   
+        case "DELETE_NAME":
+            const newArr = state.nameList.filter(el=>el!==1)
+            return null       
     
         default:
             return initialState
@@ -26,7 +29,7 @@ function App() {
     return (
         <div>
             <Input dispatch={dispatch}/>
-            <CardsList state={state}/>
+            <CardsList state={state} dispatch={dispatch}/>
         </div>
     )
 }
