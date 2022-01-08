@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import { Card } from "../Card"
 
+
 export const CardsList = ({state}) => {
     const {nameList} = state
     console.log(state)
