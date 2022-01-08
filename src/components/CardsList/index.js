@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import { Card } from "../Card"
 
 export const CardsList = ({state}) => {
+    const {nameList} = state
     console.log(state)
     return (
     <div className='cardList_container'>
-    <Card />
-    <Card />
-    <Card />
+        {nameList.map((name, idx) => {
+            return <Card name={name} key={idx} />
+        })}
+    
     </div>    
     
     )
