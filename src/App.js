@@ -1,5 +1,7 @@
 import React, { useReducer } from 'react'
+
 import './App.css'
+
 import { CardsList } from './components/CardsList'
 import { Input } from './components/Input'
 
@@ -15,8 +17,9 @@ const reducer = (state, action) => {
                 nameList: [...state.nameList, action.payload],
             }   
         case "DELETE_NAME":
-            const newArr = state.nameList.filter(el=>el!==1)
-            return null       
+            const newNameList = state.nameList.filter(el=>el!==action.payload)
+            return  {...state, nameList: newNameList}
+            
     
         default:
             return initialState

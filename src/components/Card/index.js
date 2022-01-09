@@ -4,7 +4,11 @@ import PropTypes from 'prop-types';
 
 export const Card = ({name, dispatch}) => {
     const handleDelete = () => {
-        console.log("del ", this)
+        dispatch({
+            type: "DELETE_NAME",
+            payload: name
+        })
+        console.log("delete name: ", name)
     }
     return (
         <div className="card">
