@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { nanoid } from 'nanoid'
 
 import PropTypes from 'prop-types';
 import { Card } from "../Card"
@@ -12,7 +13,8 @@ export const CardsList = ({state, dispatch}) => {
     <div className='cardList_container'>
         {nameList.map((name,i) => {
             return <Card name={name} key={i}  dispatch={dispatch}/>
-        })}
+        }
+        )}
     
     </div>    
     

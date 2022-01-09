@@ -9,6 +9,7 @@ export const Card = ({name, dispatch}) => {
             payload: name
         })
         console.log("delete name: ", name)
+        console.log("del ", this)
     }
     return (
         <div className="card">

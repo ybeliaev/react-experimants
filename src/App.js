@@ -17,8 +17,10 @@ const reducer = (state, action) => {
                 nameList: [...state.nameList, action.payload],
             }   
         case "DELETE_NAME":
+
             const newNameList = state.nameList.filter(el=>el!==action.payload)
-            return  {...state, nameList: newNameList}
+            return  {...state, nameList: newNameList}          
+
             
     
         default:
