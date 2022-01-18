@@ -2,14 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 
-export const Card = ({name, dispatch}) => {
+export const Card = ({ name, dispatch }) => {
     const handleDelete = () => {
         dispatch({
             type: "DELETE_NAME",
             payload: name
         })
         console.log("delete name: ", name)
-        console.log("del ", this)
     }
     return (
         <div className="card">
@@ -24,7 +23,7 @@ export const Card = ({name, dispatch}) => {
         </div>
     )
 }
-Card.propTypes ={
+Card.propTypes = {
     name: PropTypes.string,
     dispatch: PropTypes.func
 }
