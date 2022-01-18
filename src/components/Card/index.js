@@ -11,15 +11,17 @@ export const Card = ({ name, dispatch }) => {
         console.log("delete name: ", name)
     }
     return (
-        <div className="card">
+        <div className="card_wrapper card">
             <img src={'https://via.placeholder.com/100'} alt="avatar" />
             <div className="container">
                 <h4>
                     <b>{name}</b>
                 </h4>
             </div>
-            <button className="btn">edit</button>
-            <button className="btn btn-alert" onClick={handleDelete}>del</button>
+            <div>
+                <button className="btn">edit</button>
+                <button className="btn btn-alert" onClick={handleDelete}>del</button>
+            </div>
         </div>
     )
 }
