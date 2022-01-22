@@ -15,6 +15,7 @@ body{
 .cardList_container{
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 .card_wrapper{
   display: flex;
