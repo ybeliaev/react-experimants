@@ -6,35 +6,41 @@ import { CardsList } from './components/CardsList'
 import { Input } from './components/Input'
 
 const initialState = {
-    nameList: []
+    inputName: '',
+    nameList: [],
 }
 
 const reducer = (state, action) => {
     switch (action.type) {
-        case "ADD_NAME":
+        case 'ADD_NAME':
             return {
                 ...state,
                 nameList: [...state.nameList, action.payload],
-            }   
-        case "DELETE_NAME":
+            }
+        case 'DELETE_NAME':
+            const newNameList = state.nameList.filter(
+                (el) => el !== action.payload
+            )
+            return { ...state, nameList: newNameList }
+        case 'EDIT_NAME':
+            return { ...state, inputName: action.payload }
+        case 'CHANGE_INPUT_VALUE':
+            return { ...state, inputName: action.payload }
+        case 'RESET_INPUT_VALUE':
+            return { ...state, inputName: initialState.inputName }
 
-            const newNameList = state.nameList.filter(el=>el!==action.payload)
-            return  {...state, nameList: newNameList}          
-
-            
-    
         default:
             return initialState
     }
 }
 
 function App() {
-    const [state, dispatch] = useReducer(reducer, initialState);   
+    const [state, dispatch] = useReducer(reducer, initialState)
 
     return (
         <div>
-            <Input dispatch={dispatch}/>
-            <CardsList state={state} dispatch={dispatch}/>
+            <Input dispatch={dispatch} inputName={state.inputName} />
+            <CardsList state={state} dispatch={dispatch} />
         </div>
     )
 }
