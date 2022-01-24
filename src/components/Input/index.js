@@ -26,7 +26,6 @@ export const Input = ({ dispatch, inputName }) => {
             type: 'CHANGE_INPUT_VALUE',
             payload: e.target.value,
         })
-
         // setName(e.target.value)
     }
     return (
