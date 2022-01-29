@@ -17,7 +17,7 @@ export const Card = ({ name, dispatch }) => {
     }
     return (
         <div className="card_wrapper card">
-            <img src={'https://via.placeholder.com/100'} alt="avatar" />
+            <img src={'https://via.placeholder.com/150'} alt="avatar" />
             <div className="container">
                 <h4>
                     <b>{name}</b>

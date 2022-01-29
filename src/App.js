@@ -6,6 +6,7 @@ import { CardsList } from './components/CardsList'
 import { Input } from './components/Input'
 
 const initialState = {
+    editingName: '',
     inputName: '',
     nameList: [],
 }
@@ -23,7 +24,24 @@ const reducer = (state, action) => {
             )
             return { ...state, nameList: newNameList }
         case 'EDIT_NAME':
-            return { ...state, inputName: action.payload }
+            return {
+                ...state,
+                inputName: action.payload,
+                editingName: action.payload,
+            }
+        case 'EDIT_NAME_DONE':
+            const { editingName } = state
+            const oldArray = state.nameList
+            const filteredArray = state.nameList.filter(
+                (name) => name !== editingName
+            )
+            const newArray = [...filteredArray, action.payload]
+            return {
+                ...state,
+                editingName: '',
+                inputName: '',
+                nameList: filteredArray,
+            }
         case 'CHANGE_INPUT_VALUE':
             return { ...state, inputName: action.payload }
         case 'RESET_INPUT_VALUE':
