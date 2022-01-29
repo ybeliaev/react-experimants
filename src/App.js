@@ -38,9 +38,9 @@ const reducer = (state, action) => {
             const newArray = [...filteredArray, action.payload]
             return {
                 ...state,
-                editingName: '',
-                inputName: '',
                 nameList: filteredArray,
+                editingName: initialState.editingName,
+                inputName: initialState.inputName,
             }
         case 'CHANGE_INPUT_VALUE':
             return { ...state, inputName: action.payload }
@@ -57,7 +57,11 @@ function App() {
 
     return (
         <div>
-            <Input dispatch={dispatch} inputName={state.inputName} />
+            <Input
+                dispatch={dispatch}
+                inputName={state.inputName}
+                editingName={state.editingName}
+            />
             <CardsList state={state} dispatch={dispatch} />
         </div>
     )

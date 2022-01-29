@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react'
 
 import PropTypes from 'prop-types'
 
-export const Input = ({ dispatch, inputName }) => {
+export const Input = ({ dispatch, inputName, editingName }) => {
     // const [inputValue, setName] = useState('')
     const inputRef = useRef(null)
 
@@ -28,6 +28,18 @@ export const Input = ({ dispatch, inputName }) => {
         })
         // setName(e.target.value)
     }
+    const handleInputDone = () => {
+        if (inputName.length) {
+            dispatch({
+                type: 'EDIT_NAME_DONE',
+                payload: inputName,
+            })
+            dispatch({
+                type: 'RESET_INPUT_VALUE',
+            })
+            inputRef.current.focus()
+        }
+    }
     return (
         <div>
             <input
@@ -46,4 +58,5 @@ export const Input = ({ dispatch, inputName }) => {
 Input.propTypes = {
     dispatch: PropTypes.func,
     inputName: PropTypes.string,
+    editingName: PropTypes.string,
 }
