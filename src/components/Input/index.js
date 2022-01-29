@@ -48,9 +48,15 @@ export const Input = ({ dispatch, inputName, editingName }) => {
                 onChange={handleInputChange}
                 ref={inputRef}
             />
-            <button type="button" className="btn" onClick={handleAddName}>
-                +
-            </button>
+            {editingName ? (
+                <button type="button" className="btn" onClick={handleInputDone}>
+                    DONE
+                </button>
+            ) : (
+                <button type="button" className="btn" onClick={handleAddName}>
+                    +
+                </button>
+            )}
         </div>
     )
 }

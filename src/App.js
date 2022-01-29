@@ -32,20 +32,21 @@ const reducer = (state, action) => {
         case 'EDIT_NAME_DONE':
             const { editingName } = state
             const oldArray = state.nameList
-            const filteredArray = state.nameList.filter(
-                (name) => name !== editingName
-            )
+            const filteredArray = oldArray.filter((el) => el !== editingName)
             const newArray = [...filteredArray, action.payload]
             return {
                 ...state,
-                nameList: filteredArray,
-                editingName: initialState.editingName,
+                nameList: newArray,
                 inputName: initialState.inputName,
+                editingName: initialState.editingName,
             }
         case 'CHANGE_INPUT_VALUE':
             return { ...state, inputName: action.payload }
         case 'RESET_INPUT_VALUE':
-            return { ...state, inputName: initialState.inputName }
+            return {
+                ...state,
+                inputName: initialState.inputName,
+            }
 
         default:
             return initialState
