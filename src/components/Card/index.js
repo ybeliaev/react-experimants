@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
+import { GlobalContext } from '../../App'
 
-export const Card = ({ name, dispatch }) => {
+export const Card = ({ name }) => {
+    const { dispatch } = useContext(GlobalContext)
+
     const handleDelete = () => {
         dispatch({
             type: 'DELETE_NAME',

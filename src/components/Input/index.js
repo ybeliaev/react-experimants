@@ -1,11 +1,15 @@
-import React, { useRef, useState } from 'react'
-// import { nanoid } from 'nanoid'
+import React, { useContext, useRef } from 'react'
 
 import PropTypes from 'prop-types'
+import { GlobalContext } from '../../App'
 
-export const Input = ({ dispatch, inputName, editingName }) => {
+export const Input = () => {
     // const [inputValue, setName] = useState('')
     const inputRef = useRef(null)
+    const {
+        dispatch,
+        state: { inputName, editingName },
+    } = useContext(GlobalContext)
 
     const handleAddName = () => {
         if (inputName !== '') {

@@ -59,16 +59,19 @@ function App() {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     return (
-        <GlobalContext value={{ state, dispatch }}>
+        <GlobalContext.Provider value={{ state, dispatch }}>
             <div>
                 <Input
-                    dispatch={dispatch}
-                    inputName={state.inputName}
-                    editingName={state.editingName}
+                // dispatch={dispatch}
+                // inputName={state.inputName}
+                // editingName={state.editingName}
                 />
-                <CardsList state={state} dispatch={dispatch} />
+                <CardsList
+                // state={state}
+                // dispatch={dispatch}
+                />
             </div>
-        </GlobalContext>
+        </GlobalContext.Provider>
     )
 }
 export default App
