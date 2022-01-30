@@ -5,6 +5,8 @@ import './App.css'
 import { CardsList } from './components/CardsList'
 import { Input } from './components/Input'
 
+export const GlobalContext = React.createContext()
+
 const initialState = {
     editingName: '',
     inputName: '',
@@ -57,14 +59,16 @@ function App() {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     return (
-        <div>
-            <Input
-                dispatch={dispatch}
-                inputName={state.inputName}
-                editingName={state.editingName}
-            />
-            <CardsList state={state} dispatch={dispatch} />
-        </div>
+        <GlobalContext value={{ state, dispatch }}>
+            <div>
+                <Input
+                    dispatch={dispatch}
+                    inputName={state.inputName}
+                    editingName={state.editingName}
+                />
+                <CardsList state={state} dispatch={dispatch} />
+            </div>
+        </GlobalContext>
     )
 }
 export default App
